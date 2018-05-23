@@ -1,0 +1,4 @@
+include LICENSE
+include README.rst
+recursive-include otma_authentication/docs *
+recursive-include otma_authentication/test *
