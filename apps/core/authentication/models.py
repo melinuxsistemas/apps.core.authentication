@@ -255,7 +255,6 @@ class GroupPermissions (models.Model):
 class Permissions(models.Model, UserPermissions): #, EntityPermissions, ContactPermissions):
 
     models_exceptions = []
-
     user = models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     registration = models.CharField('Cadastros', max_length=255,null=False, unique=False, error_messages=ERRORS_MESSAGES)
     purchases = models.CharField('Compras', max_length=255,null=False, unique=False, error_messages=ERRORS_MESSAGES)
