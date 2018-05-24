@@ -1,7 +1,6 @@
+from apps.core.authentication.models import User
 import datetime
 import hashlib
-
-from apps.core.authentication import User
 
 
 def generate_activation_code(email):
