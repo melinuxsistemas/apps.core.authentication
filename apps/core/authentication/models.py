@@ -1,12 +1,11 @@
-from app.core_authentication.validators import check_password_format, email_format_validator, email_dangerous_symbols_validator
-from app.core_authentication.utils import generate_activation_code
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.core.mail import send_mail
 from django.conf import settings
 from django.db import models
 
-
+from apps.core.authentication.validators import email_format_validator, email_dangerous_symbols_validator
+from apps.core.authentication.utils import generate_activation_code
 import datetime
 
 

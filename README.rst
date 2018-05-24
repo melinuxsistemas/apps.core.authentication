@@ -8,11 +8,11 @@ Detailed documentation is in the "docs" directory.
 Quick start
 -----------
 
-1. Add "otma_authentication" to your INSTALLED_APPS setting like this::
+1. Add "apps.core.authentication" to your INSTALLED_APPS setting like this::
 
     INSTALLED_APPS = [
         ...
-        'core_authentication',
+        'apps.core.authentication',
     ]
 
 2. Include the polls URLconf in your project urls.py like this::

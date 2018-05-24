@@ -1,4 +1,4 @@
 include LICENSE
 include README.rst
-recursive-include otma_authentication/docs *
-recursive-include otma_authentication/test *
+recursive-include apps/core/authentication/docs *
+recursive-include apps/core/authentication/test *

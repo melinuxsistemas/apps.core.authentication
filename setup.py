@@ -9,10 +9,10 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 
 def get_requirements():
-    return open(os.path.join(os.path.dirname(__file__), 'conf/requirements.txt')).read().splitlines()
+    return open(os.path.join(os.path.dirname(__file__), 'apps/core/authentication/conf/requirements.txt')).read().splitlines()
 
 setup(
-    name='core_authentication',
+    name='apps.core.authentication',
     version='0.1',
     packages=find_packages(),
     include_package_data=True,
