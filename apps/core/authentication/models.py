@@ -4,7 +4,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.db import models
 
-from apps.core.authentication.validators import email_format_validator, email_dangerous_symbols_validator
+from apps.core.authentication.validators import email_format_validator, email_dangerous_symbols_validator, check_password_format
 from apps.core.authentication.utils import generate_activation_code
 import datetime
 
@@ -219,22 +219,22 @@ class Session(models.Model):
         verbose_name = _('Sessão')
         verbose_name_plural = _('Sessões')
 
-    session_key = models.CharField("Chave de Sessão", max_length=32, null=False, error_messages=ERRORS_MESSAGES)
+    session_key = models.CharField("Chave de Sessão", max_length=32, null=False, error_messages=settings.ERRORS_MESSAGES)
 
     user = models.ForeignKey('User')
-    internal_ip = models.GenericIPAddressField("IP Interno:", null=False, error_messages=ERRORS_MESSAGES)
-    external_ip = models.GenericIPAddressField("IP Externo:", null=False, error_messages=ERRORS_MESSAGES)
-    country_name = models.CharField("País", max_length=50, null=False, error_messages=ERRORS_MESSAGES)
-    country_code = models.CharField("Sigla do País", max_length=2, null=False, error_messages=ERRORS_MESSAGES)
-    region_code  = models.CharField("Sigla do Estado", max_length=2, null=False, error_messages=ERRORS_MESSAGES)
-    region_name  = models.CharField("Estado", max_length=60, null=False, error_messages=ERRORS_MESSAGES)
-    city         = models.CharField("Cidade", max_length=100, null=False, error_messages=ERRORS_MESSAGES)
-    zip_code     = models.CharField("Código Postal", max_length=10, null=False, error_messages=ERRORS_MESSAGES)
-    time_zone    = models.CharField("Fuzo Horário", max_length=30, null=False, error_messages=ERRORS_MESSAGES)
-    latitude     = models.CharField("Latitude", max_length=20, null=False, error_messages=ERRORS_MESSAGES)
-    longitude    = models.CharField("Longitude", max_length=20, null=False, error_messages=ERRORS_MESSAGES)
+    internal_ip = models.GenericIPAddressField("IP Interno:", null=False, error_messages=settings.ERRORS_MESSAGES)
+    external_ip = models.GenericIPAddressField("IP Externo:", null=False, error_messages=settings.ERRORS_MESSAGES)
+    country_name = models.CharField("País", max_length=50, null=False, error_messages=settings.ERRORS_MESSAGES)
+    country_code = models.CharField("Sigla do País", max_length=2, null=False, error_messages=settings.ERRORS_MESSAGES)
+    region_code  = models.CharField("Sigla do Estado", max_length=2, null=False, error_messages=settings.ERRORS_MESSAGES)
+    region_name  = models.CharField("Estado", max_length=60, null=False, error_messages=settings.ERRORS_MESSAGES)
+    city         = models.CharField("Cidade", max_length=100, null=False, error_messages=settings.ERRORS_MESSAGES)
+    zip_code     = models.CharField("Código Postal", max_length=10, null=False, error_messages=settings.ERRORS_MESSAGES)
+    time_zone    = models.CharField("Fuzo Horário", max_length=30, null=False, error_messages=settings.ERRORS_MESSAGES)
+    latitude     = models.CharField("Latitude", max_length=20, null=False, error_messages=settings.ERRORS_MESSAGES)
+    longitude    = models.CharField("Longitude", max_length=20, null=False, error_messages=settings.ERRORS_MESSAGES)
 
-    is_expired   = models.BooleanField("Sessão Expirada", null=False,blank=False, default=False,error_messages=ERRORS_MESSAGES)
+    is_expired   = models.BooleanField("Sessão Expirada", null=False,blank=False, default=False,error_messages=settings.ERRORS_MESSAGES)
     created_date = models.DateTimeField(auto_now_add=True, null=False)
     last_update  = models.DateTimeField(auto_now=True, null=False)
 
