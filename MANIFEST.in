@@ -2,4 +2,6 @@ include LICENSE
 include README.rst
 recursive-include apps/core/authentication/conf *
 recursive-include apps/core/authentication/docs *
-recursive-include apps/core/authentication/test *
+recursive-include apps/core/authentication/tests *
+recursive-include apps/core/authentication/static *
+recursive-include apps/core/authentication/templates *

@@ -4,8 +4,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from django.db import models
 
-from apps.core.authentication.utils import generate_activation_code
 from apps.core.authentication.validators import email_format_validator, email_dangerous_symbols_validator, check_password_format
+from apps.core.authentication.utils import generate_activation_code
 
 import datetime
 
