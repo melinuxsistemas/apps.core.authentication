@@ -1,4 +1,4 @@
-from apps.core.authentication.authentication.models import User
+from apps.core.authentication.models import User
 import datetime
 import hashlib
 
