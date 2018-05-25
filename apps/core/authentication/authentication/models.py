@@ -1,12 +1,13 @@
-from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
-from django.utils.translation import ugettext_lazy as _
-from django.core.mail import send_mail
-from django.conf import settings
-from django.db import models
+import datetime
 
 from apps.core.authentication.validators import email_format_validator, email_dangerous_symbols_validator, check_password_format
-from apps.core.authentication.utils import generate_activation_code
-import datetime
+from django.conf import settings
+from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
+from django.core.mail import send_mail
+from django.db import models
+from django.utils.translation import ugettext_lazy as _
+
+from apps.core.authentication.authentication.utils import generate_activation_code
 
 
 class UserManager(BaseUserManager):
