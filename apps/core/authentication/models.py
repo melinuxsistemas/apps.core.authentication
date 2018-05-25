@@ -1,12 +1,9 @@
+from apps.core.authentication.validators import email_format_validator, email_dangerous_symbols_validator, check_password_format
 from django.contrib.auth.base_user import BaseUserManager, AbstractBaseUser
 from django.utils.translation import ugettext_lazy as _
 from django.core.mail import send_mail
 from django.conf import settings
 from django.db import models
-
-from apps.core.authentication.validators import email_format_validator, email_dangerous_symbols_validator, check_password_format
-from apps.core.authentication.utils import generate_activation_code
-
 import datetime
 
 
@@ -171,6 +168,7 @@ class User(AbstractBaseUser):
         return self.email
 
     def save(self, force_insert=False, force_update=False, using=None):
+        from apps.core.authentication.utils import generate_activation_code
         super(User, self).save()
         self.activation_code = generate_activation_code()
         super(User, self).save()
